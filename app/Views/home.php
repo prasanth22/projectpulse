@@ -68,8 +68,8 @@
     </p>
 
     <div class="text-center">
-        <a href="/login" class="btn btn-custom btn-lg">Login</a>
-        <a href="/register" class="btn btn-outline-primary btn-lg">Register</a>
+        <a href="<?= base_url('/login'); ?>" class="btn btn-custom btn-lg">Login</a>
+        <a href="<?= base_url('/register'); ?>" class="btn btn-outline-primary btn-lg">Register</a>
     </div>
 </div>
 
