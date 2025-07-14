@@ -45,7 +45,7 @@
             <button class="btn btn-primary w-100">Register</button>
         </form>
         <div class="mt-3 text-center">
-            <small>Already have an account? <a href="/login">Login</a></small>
+            <small>Already have an account? <a href="<?= site_url('/login') ?>">Login</a></small>
         </div>
     </div>
 </body>
