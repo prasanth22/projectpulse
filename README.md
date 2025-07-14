@@ -1,68 +1,51 @@
-# CodeIgniter 4 Application Starter
+# 📊 ProjectPulse
 
-## What is CodeIgniter?
+ProjectPulse is a **Quora-style project management and discussion platform** built using **CodeIgniter 4**, **MySQL**, and **Bootstrap 5**. It enables employees in an organization to manage and discuss projects through posts, comments, and task sharing.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🧩 Features
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- User Authentication (Login / Logout)
+- Quora-like Navigation Bar with Profile Dropdown
+- Admin & Employee Roles (Role-based Access)
+- Trending Projects Sidebar (Visible across all pages)
+- Projects and Posts (1-to-many relationship)
+- Add, View, and Edit Posts (with modals like Quora)
+- Profile Management (View and Edit)
+- Session-based Flash Messages
+- Responsive UI with Bootstrap 5
+- Git Integration for Version Control
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+## 🚀 Technologies Used
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- [CodeIgniter 4](https://codeigniter.com/)
+- PHP 8.x
+- MySQL / MariaDB
+- Bootstrap 5
+- Font: Bootstrap Icons
+- Git & GitHub for version control
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+## 🗃️ Database Structure (Simplified)
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+| Table      | Fields                                                                 |
+|------------|------------------------------------------------------------------------|
+| `users`    | id, name, email, password, mobile, role, designation, created_at       |
+| `projects` | id, name, description, created_at, updated_at                          |
+| `posts`    | id, user_id (FK), project_id (FK), title, content, created_at, updated_at |
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## ⚙️ Setup Instructions
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 🖥️ Local Setup (XAMPP/Windows)
 
-**Please** read the user guide for a better explanation of how CI4 works!
+1. Clone the repo:
 
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+```bash
+git clone https://github.com/Prasanth22/projectpulse.git
+cd projectpulse
