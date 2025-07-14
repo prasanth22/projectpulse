@@ -29,26 +29,6 @@ ProjectPulse is a **Quora-style project management and discussion platform** bui
 - Git & GitHub for version control
 
 ---
-📂 Project Structure
-pgsql
-Copy
-Edit
-ProjectPulse/
-├── app/
-│   ├── Config/
-│   ├── Controllers/
-│   ├── Models/
-│   ├── Views/
-│   └── Database/
-│       ├── Migrations/
-│       └── Seeders/
-├── public/
-│   ├── img/
-│   ├── css/
-│   └── index.php
-├── writable/
-├── README.md
-└── .env
 
 ## 🗃️ Database Structure (Simplified)
 
@@ -69,4 +49,3 @@ ProjectPulse/
 ```bash
 git clone https://github.com/Prasanth22/projectpulse.git
 cd projectpulse
-
