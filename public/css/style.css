@@ -1,0 +1,35 @@
+ body {
+        background-color: #f5f8fc;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      .navbar-brand { font-weight: bold; font-size: 1.4rem; }
+      .post-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 123, 255, 0.05);
+        margin-bottom: 20px;
+      }
+      .post-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #000;
+        text-decoration: none;
+      }
+      .post-title:hover { text-decoration: underline; }
+      .author { color: #007bff; font-weight: 500; }
+      .side-info { font-size: 0.9rem; color: #666; }
+      .btn-write {
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 30px;
+        padding: 8px 20px;
+      }
+      .btn-write:hover { background-color: #0056b3; }
+      .navbar {
+          z-index: 1030;
+      }
+      .dropdown-menu {
+          z-index: 1055; /* Bootstrap modals use 1050+, so this is safe */
+          min-width: 200px;
+        }

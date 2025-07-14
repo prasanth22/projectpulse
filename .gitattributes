@@ -1,0 +1,7 @@
+/.gitattributes export-ignore
+/.github export-ignore
+/vendor/
+.env
+/public/uploads/
+.writable/
+*.log
