@@ -23,9 +23,9 @@
             </td>
             <td>
                 <?php if ($user['status'] == 'active'): ?>
-                    <a href="/admin/users/block/<?= $user['id'] ?>" class="btn btn-sm btn-danger">Block</a>
+                    <a href="<?= site_url('admin/users/block/' . $user['id']) ?>" class="btn btn-sm btn-danger">Block</a>
                 <?php else: ?>
-                    <a href="/admin/users/activate/<?= $user['id'] ?>" class="btn btn-sm btn-success">Activate</a>
+                    <a href="<?= site_url('/admin/users/activate/' . $user['id']) ?>" class="btn btn-sm btn-success">Activate</a>
                 <?php endif; ?>
             </td>
         </tr>
