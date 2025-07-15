@@ -7,7 +7,7 @@
                 <i class="fas fa-user-circle fa-lg text-primary"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="adminDropdown">
-                <a class="dropdown-item" href="/admin/logout">
+                <a class="dropdown-item" href="<?= site_url('/admin/logout') ?>">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                 </a>

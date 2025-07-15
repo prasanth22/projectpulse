@@ -5,19 +5,19 @@
 
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="/admin/dashboard">
+        <a class="nav-link" href="<?= site_url('/admin/dashboard') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
     <hr class="sidebar-divider">
     <li class="nav-item">
-        <a class="nav-link" href="/admin/users">
+        <a class="nav-link" href="<?= base_url('/admin/users') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Manage Users</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/admin/projects">
+        <a class="nav-link" href="<?= base_url('/admin/projects') ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Manage Projects</span></a>
     </li>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- SB Admin 2 CSS -->
-    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url('/admin/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
+    <link href="<?= base_url('/admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
 
     <style>
         /* Override primary color with NIC light blue */
@@ -64,10 +64,10 @@
 </div>
 
 <!-- JS Scripts -->
-<script src="/admin/vendor/jquery/jquery.min.js"></script>
-<script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="/admin/js/sb-admin-2.min.js"></script>
+<script src="<?= base_url('/admin/vendor/jquery/jquery.min.js') ?>"></script>
+<script src="<?= base_url('/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?= base_url('/admin/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+<script src="<?= base_url('/admin/js/sb-admin-2.min.js') ?>"></script>
 
 </body>
 </html>
