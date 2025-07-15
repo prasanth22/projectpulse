@@ -32,7 +32,7 @@
     <div class="register-card">
         <div class="brand">ProjectPulse</div>
         <h4 class="mb-3 text-center">Create a new account</h4>
-        <form method="post" action="/auth/registerSubmit">
+        <form method="post" action="<?= site_url('/auth/registerSubmit') ?>">
             <div class="mb-3">
                 <input type="text" name="name" class="form-control" placeholder="Full Name" required>
             </div>

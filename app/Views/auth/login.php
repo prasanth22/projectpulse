@@ -32,7 +32,7 @@
     <div class="login-card">
         <div class="brand">ProjectPulse</div>
         <h4 class="mb-3 text-center">Login to your account</h4>
-        <form method="post" action="/auth/loginSubmit">
+        <form method="post" action="<?= site_url('/auth/loginSubmit') ?>">
             <div class="mb-3">
                 <input type="email" name="email" class="form-control" placeholder="Email" required>
             </div>
