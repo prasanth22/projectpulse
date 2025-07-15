@@ -40,7 +40,7 @@
                     <td><?= esc($project['project_name']) ?></td>
                     <td>
                         <?= word_limiter(strip_tags($project['description']), 10) ?>
-                        <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>">Read more</a>
+                        <a href="<?= site_url('admin/projects/edit/' . $project['id']) ?>">Read more</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
