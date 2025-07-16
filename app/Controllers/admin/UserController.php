@@ -8,7 +8,7 @@ class UserController extends BaseController
 {
     public function index()
     {
-        if (!session()->get('is_admin')) return redirect()->to('/admin/login');
+        if (!session()->get('is_admin')) return redirect()->to('/');
 
         $userModel = new UserModel();
         $users = $userModel->findAll();

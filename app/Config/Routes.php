@@ -9,12 +9,12 @@ use CodeIgniter\Router\RouteCollection;
 // --------------------------------------------------
 // Public Routes (Guest Access)
 // --------------------------------------------------
-$routes->get('/', 'Home::index');
-$routes->get('/register', 'Auth::register');
-$routes->post('/auth/registerSubmit', 'Auth::registerSubmit');
-$routes->get('/login', 'Auth::login');
-$routes->post('/auth/loginSubmit', 'Auth::loginSubmit');
-$routes->get('/logout', 'Auth::logout');
+$routes->get('/', 'HomeController::index');
+#$routes->get('/register', 'Auth::register');
+$routes->post('register', 'AuthController::registerSubmit');
+#$routes->get('/login', 'Auth::login');
+$routes->post('login', 'AuthController::loginSubmit');
+$routes->get('/logout', 'AuthController::logout');
 
 // --------------------------------------------------
 // User Routes (After Login)
@@ -39,9 +39,9 @@ $routes->post('posts/update/(:num)', 'PostsController::update/$1');
 // --------------------------------------------------
 $routes->group('admin', static function ($routes) {
     // Admin Auth
-    $routes->get('login', 'Admin\Auth::login');
-    $routes->post('login', 'Admin\Auth::doLogin');
-    $routes->get('logout', 'Admin\Auth::logout');
+    // $routes->get('login', 'Admin\Auth::login');
+    // $routes->post('login', 'Admin\Auth::doLogin');
+    $routes->get('logout', 'AuthController::logout');
 
     // Admin Dashboard & User Management
     $routes->get('dashboard', 'Admin\Dashboard::index');
@@ -57,17 +57,5 @@ $routes->group('admin', static function ($routes) {
     $routes->get('projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
 });
 
-// --------------------------------------------------
-// Optional: Writer/Author Routes
-// --------------------------------------------------
-// You can use a separate writer group like this:
-$routes->group('writer', static function ($routes) {
-    $routes->get('dashboard', 'Writer\Dashboard::index');
-    $routes->get('create', 'Writer\ProjectController::create');
-    $routes->post('store', 'Writer\ProjectController::store');
-    $routes->get('edit/(:num)', 'Writer\ProjectController::edit/$1');
-    $routes->post('update/(:num)', 'Writer\ProjectController::update/$1');
-});
 
-// we’ll create this next
 

@@ -4,12 +4,12 @@ namespace App\Controllers;
 
 use App\Models\User;
 
-class Auth extends BaseController
+class AuthController extends BaseController
 {
-    public function register()
-    {
-        return view('auth/register');
-    }
+    // public function register()
+    // {
+    //     return view('auth/register');
+    // }
 
     public function registerSubmit()
     {
@@ -24,13 +24,13 @@ class Auth extends BaseController
 
         $userModel->insert($data);
 
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 
-    public function login()
-    {
-        return view('auth/login');
-    }
+    // public function login()
+    // {
+    //     return view('auth/login');
+    // }
 
     public function loginSubmit()
     {
@@ -43,7 +43,12 @@ class Auth extends BaseController
                 'role'  => $user['role']
             ]);
 
-            return redirect()->to('/home');
+            if($user['role'] === 'admin') {
+                session()->set('is_admin', true);
+                return redirect()->to('/admin/dashboard');
+            }else{
+                return redirect()->to('/home');
+            }
         }
 
         return redirect()->back()->with('error', 'Invalid credentials');
@@ -52,6 +57,6 @@ class Auth extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 }
