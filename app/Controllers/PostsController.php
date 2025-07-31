@@ -6,11 +6,16 @@ class PostsController extends BaseController
 {
     public function create()
     {
+        helper('html');
+
+        $content = $this->request->getPost('content');
+        $cleanContent = sanitize_html($content);
+
         $data = [
             'project_id' => $this->request->getPost('project_id'),
             'user_id'    => session()->get('user')['id'],
             'title'      => $this->request->getPost('title'),
-            'content'    => $this->request->getPost('content'),
+            'content'    => $cleanContent,
         ];
 
         $postModel = new \App\Models\PostModel();
@@ -52,9 +57,14 @@ class PostsController extends BaseController
             return redirect()->to('/home')->with('error', 'Unauthorized action');
         }
 
+        helper('html');
+
+        $content = $this->request->getPost('content');
+        $cleanContent = sanitize_html($content);
+
         $postModel->update($id, [
             'title' => $this->request->getPost('title'),
-            'content' => $this->request->getPost('content')
+            'content' => $cleanContent
         ]);
 
         return redirect()->to('/posts/view/' . $id)->with('success', 'Post updated successfully!');

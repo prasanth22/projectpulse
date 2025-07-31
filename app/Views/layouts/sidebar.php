@@ -1,7 +1,7 @@
 <!-- Sidebar -->
  
  
-<div class="col-md-4">
+<div class="col-md-3">
   <!-- Set lower z-index for sticky sidebar -->
   <div class="sticky-top" style="top: 90px; z-index: 1020;">
   

@@ -90,6 +90,9 @@
                 </div>
 
                 <!-- Login Form -->
+                    <?php if (session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+                    <?php endif; ?>
                 <div id="loginForm" class="form-section active">
                     <form method="post" action="<?= site_url('/login') ?>">
                         <div class="mb-3">

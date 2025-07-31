@@ -26,7 +26,7 @@
       in <strong><?= esc($post['project_name']) ?></strong>
     </p>
     <hr>
-    <p><?= nl2br(esc($post['content'])) ?></p>
+    <p><?= $post['content'] ?></p>
   </div>
 </div>
 

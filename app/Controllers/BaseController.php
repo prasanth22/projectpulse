@@ -92,6 +92,17 @@ abstract class BaseController extends Controller
         echo view('layouts/sidebar', $data);
         echo view('layouts/footer', $data);
     }
+
+    protected function renderProjectView($view, $data = [])
+    {
+        $data['trendingProjects'] = $this->trendingProjects;
+        $data['user'] = $this->currentUser;
+        $data = array_merge($data, $this->loadSharedData());
+        
+        echo view('layouts/header', $data);
+        echo view($view, $data);
+        echo view('layouts/footer', $data);
+    }
     protected function loadSharedData()
     {
         $projectModel = new \App\Models\ProjectModel();

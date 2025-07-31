@@ -10,4 +10,14 @@ class ProjectModel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = ['project_name', 'description', 'project_head'];
     protected $useTimestamps = true;
+
+   public function getProjectsWithPostCount()
+    {
+        return $this->select('projects.*, COUNT(posts.id) as post_count')
+                    ->join('posts', 'posts.project_id = projects.id', 'left')
+                    ->groupBy('projects.id')
+                    ->findAll();
+    }
+
+
 }

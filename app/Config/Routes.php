@@ -29,6 +29,10 @@ $routes->post('posts/create', 'PostsController::create');
 $routes->get('posts/view/(:num)', 'PostsController::view/$1');
 $routes->post('posts/update/(:num)', 'PostsController::update/$1');
 
+$routes->get('projects', 'ProjectsController::index');
+$routes->get('projects/view/(:num)', 'ProjectsController::view/$1');
+
+
 //$routes->get('admin/user-profile/(:num)', 'Admin\UserController::view/$1'); // for admin
 
 // Add more user-only routes below as needed

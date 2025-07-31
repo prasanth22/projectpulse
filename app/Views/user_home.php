@@ -21,7 +21,7 @@
           <h5 class="post-title"><?= esc($post['title']) ?></h5>
           <p class="mb-1 text-muted">by <span class="author"><?= esc($post['author_name']) ?></span> in <strong><?= esc($post['project_name']) ?></strong></p>
           <p>
-            <?= esc(word_limiter($post['content'], 60)) ?>
+            <?= word_limiter($post['content'], 60) ?>
             <a href="<?= site_url('posts/view/' . $post['id']) ?>" class="text-primary text-decoration-none">Read more</a>
           </p>
         </div>

@@ -33,3 +33,24 @@
           z-index: 1055; /* Bootstrap modals use 1050+, so this is safe */
           min-width: 200px;
         }
+
+        .post-title-1 {
+          cursor: pointer;
+          border: none;
+          border-bottom: 1px solid #eee;
+          color: #333;
+          transition: background 0.2s;
+          font-size: 0.9rem;
+          line-height: 1.4;
+      }
+
+      .post-title-1:hover {
+          background-color: #f9f9f9;
+          color: #0056b3;
+      }
+
+      .active-title {
+          background-color: #e7f1ff !important;
+          color: #0d6efd;
+          font-weight: 500;
+      }
