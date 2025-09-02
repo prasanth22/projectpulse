@@ -15,7 +15,7 @@ class AddStatusToUsers extends Migration
                 'default'    => 'active',
                 'after'      => 'role'  // Put it after 'role' column (optional)
             ],
-        ]);
+        ], true); // the `true` makes it IF NOT EXISTS
     }
 
     public function down()

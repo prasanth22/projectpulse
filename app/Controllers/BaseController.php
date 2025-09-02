@@ -8,7 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use App\Models\ProjectModel;
+use App\Models\ProjectTopicModel;
 use App\Models\UserModel;
 /**
  * Class BaseController
@@ -63,9 +63,10 @@ abstract class BaseController extends Controller
         helper(['url', 'form']);
 
         // Load trending projects
-        $projectModel = new ProjectModel();
+        $projectModel = new ProjectTopicModel();
         // Fetch latest 5 trending projects
         $this->trendingProjects = $projectModel
+            ->where('type', 'project')
             ->orderBy('created_at', 'DESC')
             ->limit(5)
             ->findAll();
@@ -88,8 +89,8 @@ abstract class BaseController extends Controller
         //dd($data);
 
         echo view('layouts/header', $data);
-        echo view($view, $data);
         echo view('layouts/sidebar', $data);
+        echo view($view, $data);
         echo view('layouts/footer', $data);
     }
 
@@ -103,11 +104,21 @@ abstract class BaseController extends Controller
         echo view($view, $data);
         echo view('layouts/footer', $data);
     }
+    protected function renderView_no_sidebar($view, $data = [])
+    {
+        $data['user'] = $this->currentUser;
+        $data = array_merge($data, $this->loadSharedData());
+        
+        echo view('layouts/header', $data);
+        echo view($view, $data);
+       // echo view('layouts/footer', $data);
+    }
     protected function loadSharedData()
     {
-        $projectModel = new \App\Models\ProjectModel();
-        $projects = $projectModel->findAll();
-        return ['projects' => $projects];
+        $ProjectTopicModel = new \App\Models\ProjectTopicModel();
+        $projects = $ProjectTopicModel->where('type', 'project')->findAll();
+        $topics = $ProjectTopicModel->where('type', 'topic')->findAll();
+        return ['projects' => $projects, 'topics' => $topics];
     }
 
 }

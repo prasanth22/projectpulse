@@ -13,6 +13,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Total Toics</h5>
+                    <p class="card-text fs-4"><?= esc($topicCount) ?></p>
+                </div>
+            </div>
+        </div>
 
         <div class="col-md-4">
             <div class="card text-white bg-success">
@@ -37,7 +45,7 @@
             <?php foreach ($recentProjects as $project): ?>
                 <tr>
                     <td><?= $project['id'] ?></td>
-                    <td><?= esc($project['project_name']) ?></td>
+                    <td><?= esc($project['name']) ?></td>
                     <td>
                         <?= word_limiter(strip_tags($project['description']), 10) ?>
                         <a href="<?= site_url('admin/projects/edit/' . $project['id']) ?>">Read more</a>

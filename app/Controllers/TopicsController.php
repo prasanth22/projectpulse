@@ -8,41 +8,41 @@ use App\Models\PostModel;
 use App\Controllers\BaseController;
 
 
-class ProjectsController extends BaseController
+class TopicsController extends BaseController
 {
     public function index()
     {
         $project_topicModel = new ProjectTopicModel();
         //$data['projects'] = $projectModel->findAll();
-        $data['projects_with_post_c'] = $project_topicModel->getProjectsWithPostCount();
+        $data['topics_with_post_c'] = $project_topicModel->getTopicsWithPostCount();
 
         // echo '<pre>';
         // print_r($data['projects']);
         // echo '</pre>';
         // exit;
 
-        return $this->renderView('projects/index', [
-            'projects_with_post_c' => $data['projects_with_post_c']
+        return $this->renderView('topics/index', [
+            'projects_with_post_c' => $data['topics_with_post_c']
         ]);
     }
 
     public function view($projectId)
     {
-        $projectModel = new ProjectTopicModel();
+        $projecttopicModel = new ProjectTopicModel();
         $postModel = new PostModel();
 
-        $project = $projectModel->find($projectId);
+        $topic = $projecttopicModel->find($projectId);
         $posts = $postModel
                     ->where('project_topic_id', $projectId)
                     ->orderBy('created_at', 'DESC')
                     ->findAll();
 
-        if (!$project) {
+        if (!$topic) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException("Project with ID $projectId not found");
         }
 
-        return $this->renderProjectView('projects/view', [
-            'project' => $project,
+        return $this->renderProjectView('topics/view', [
+            'topic' => $topic,
             'posts' => $posts
         ]);
     }

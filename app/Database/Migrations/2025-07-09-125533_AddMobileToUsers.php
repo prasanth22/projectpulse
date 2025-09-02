@@ -15,7 +15,7 @@ class AddMobileToUsers extends Migration
                 'null' => true,
                 'after' => 'email'
             ]
-        ]);
+        ], true); // the `true` makes it IF NOT EXISTS
     }
 
     public function down()

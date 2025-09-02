@@ -5,61 +5,75 @@
     &copy; <?= date('Y') ?> ProjectPulse. Built for NIC Collaboration.
   </footer>
 
-  <!-- Add Post Modal -->
-<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostLabel" aria-hidden="true">
+<!-- Add Question Modal -->
+<div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-        <form action="<?= site_url('posts/create') ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+      <form action="<?= site_url('questions/create') ?>" method="post" enctype="multipart/form-data">
         <div class="modal-header">
-          <h5 class="modal-title" id="addPostLabel">Create a Post</h5>
+          <h5 class="modal-title" id="addQuestionLabel">Ask a Question</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
+
+          <!-- Select Project/Topic -->
           <div class="mb-3">
-            <label for="project_id" class="form-label">Select Project</label>
-            <select class="form-select" name="project_id" required>
-              <option value="">-- Select Project --</option>
-              <?php foreach ($projects as $project): ?>
-                <option value="<?= $project['id'] ?>"><?= esc($project['project_name']) ?></option>
-              <?php endforeach; ?>
+            <label for="project_topic_id" class="form-label">Related To</label>
+            <select class="form-select searchable-dropdown" name="project_topic_id" required>
+              <option value="">-- Select Project/Topic --</option>
+              <optgroup label="Projects">
+                <?php foreach ($projects as $project): ?>
+                  <option value="<?= $project['id'] ?>">📂 <?= esc($project['name']) ?></option>
+                <?php endforeach; ?>
+              </optgroup>
+              <optgroup label="Topics">
+                <?php foreach ($topics as $topic): ?>
+                  <option value="<?= $topic['id'] ?>">📝 <?= esc($topic['name']) ?></option>
+                <?php endforeach; ?>
+              </optgroup>
             </select>
           </div>
+
+          <!-- Question Content -->
           <div class="mb-3">
-            <label for="title" class="form-label">Post Title</label>
-            <input type="text" name="title" class="form-control" placeholder="What's your question or idea?" required>
+            <label for="content" class="form-label">Your Question</label>
+            <textarea id="summernote" name="content" class="form-control" rows="5"
+              placeholder="Write your question here..." required></textarea>
           </div>
-          <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea name="content" class="form-control" rows="5" placeholder="Add more context or explanation..."></textarea>
-          </div>
+
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Post</button>
+          <button type="submit" class="btn btn-primary">Ask Question</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-<!-- At the very end of the HTML before </body> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/gm2967pmu5da981b3874wwogwswot8drja7cc8b5zh9rphaz/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-      tinymce.init({
-        selector: 'textarea[name="content"]',
-        plugins: 'image link media table code lists',
-        toolbar: 'undo redo | styles | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | image link media | code',
-        height: 300
-      });
 
-      function validateForm() {
-        tinymce.triggerSave(); // Copy content to the hidden textarea
-        const content = document.querySelector('textarea[name="content"]').value.trim();
-        if (content === '') {
-          alert('Content is required.');
-          return false;
-        }
-        return true;
-      }
-    </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.searchable-dropdown').select2({
+      dropdownParent: $('#addQuestionModal'), // ensures it shows inside modal
+      width: '100%',
+      placeholder: "-- Select Project/Topic --",
+      allowClear: true
+    });
+  });
+</script>
+
+
+
+
+
   </body>
 </html>

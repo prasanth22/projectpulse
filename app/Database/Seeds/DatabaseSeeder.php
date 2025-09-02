@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
 
         // Example: if you add more later
         // $this->call('RoleSeeder');
-         $this->call('ProjectSeeder');
+         $this->call('ProjectsTopicsSeeder');
     }
 }

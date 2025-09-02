@@ -20,6 +20,12 @@ class UserSeeder extends Seeder
                 'email' => 'user1@email.com',
                 'password' => password_hash('user123', PASSWORD_DEFAULT),
                 'role' => 'employee',
+            ],
+             [
+                'name' => 'User2',
+                'email' => 'user2@email.com',
+                'password' => password_hash('user123', PASSWORD_DEFAULT),
+                'role' => 'employee',
             ]
         ];
 

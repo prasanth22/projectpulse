@@ -13,7 +13,7 @@
           <?php foreach ($trendingProjects as $project) { ?>
             <li>
               <a href="<?= site_url('projects/view/' . $project['id']) ?>" class="text-decoration-none text-dark">
-                <?= esc($project['project_name']) ?>
+                <?= esc($project['name']) ?>
               </a>
             </li>
           <?php } ?>

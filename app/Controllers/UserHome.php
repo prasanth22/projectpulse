@@ -9,15 +9,13 @@ class UserHome extends BaseController
         $user = session()->get('user');
 
         if (!$user) {
-            return redirect()->to('/login');
+            return redirect()->to('/');
         }
 
         $postModel = new \App\Models\PostModel();
-        $posts = $postModel->getPostsWithProject();
+        $posts = $postModel->getPostsWithProject_Topic();
 
-        //return view('user_home/index', ['trendingProjects' => $trendingProjects, 'user' => $user]);
         return $this->renderView('user_home', ['user' => $user, 'posts' => $posts]);
 
-        //return view('dashboard/index', ['user' => $user]);
     }
 }

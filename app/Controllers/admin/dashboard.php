@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
-use App\Models\ProjectModel;
+use App\Models\ProjectTopicModel;
 use App\Models\UserModel;
 
 class Dashboard extends BaseController
@@ -10,16 +10,17 @@ class Dashboard extends BaseController
     public function index()
     {
         if (!session()->get('is_admin')) {
-            return redirect()->to('/admin/login');
+            return redirect()->to('/')->with('error', 'Unauthorized access.');
         }
 
-        $projectModel = new ProjectModel();
+        $project_topic_Model = new ProjectTopicModel();
         $userModel = new UserModel();
 
         $data = [
-            'projectCount' => $projectModel->countAll(),
+            'projectCount' => $project_topic_Model->where('type', 'project')->countAllResults(),
+            'topicCount'   => $project_topic_Model->where('type', 'topic')->countAllResults(),
             'userCount'    => $userModel->where('role !=', 'admin')->countAllResults(),
-            'recentProjects' => $projectModel->orderBy('id', 'DESC')->limit(5)->findAll(),
+            'recentProjects' => $project_topic_Model->orderBy('id', 'DESC')->limit(5)->findAll(),
         ];
 
         return view('admin/dashboard', $data);

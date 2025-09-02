@@ -19,18 +19,32 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="<?= site_url('home') ?>">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Answer</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?= site_url('projects') ?>">Projects</a></li>
+          <li class="nav-item">
+            <a class="nav-link <?= service('uri')->getSegment(1) == 'home' ? 'active' : '' ?>" href="<?= site_url('home') ?>">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?= service('uri')->getSegment(1) == 'answers' ? 'active' : '' ?>" href="<?= site_url('answers') ?>">Answers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?= service('uri')->getSegment(1) == 'projects' ? 'active' : '' ?>" href="<?= site_url('projects') ?>">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?= service('uri')->getSegment(1) == 'topics' ? 'active' : '' ?>" href="<?= site_url('topics') ?>">Topics</a>
+          </li>
         </ul>
             <!-- Search bar -->
           <form class="d-flex mx-auto" style="width: 300px;" method="get" action="#">
             <input class="form-control form-control-sm me-2" type="search" placeholder="Search ProjectPulse..." aria-label="Search" name="q" disabled>
           </form>
 
+          <!-- Create Post Button -->
+            <a href="<?= site_url('posts/create') ?>" class="btn btn-lightblue btn-sm me-2">
+                Create Post
+            </a>
+
           <!-- Add Content Button -->     
-        <button class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#addPostModal">
-          Add Content
+        <button class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#addQuestionModal">
+          Add Question
         </button>
 
         <div class="dropdown">

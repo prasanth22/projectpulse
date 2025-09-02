@@ -19,11 +19,12 @@ class CreateUsersTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->createTable('users');
+        $this->forge->createTable('users', true); // the `true` makes it IF NOT EXISTS
+
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('users', true); // true = IF EXISTS
     }
 }

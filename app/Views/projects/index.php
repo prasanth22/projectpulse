@@ -15,7 +15,7 @@
             <a href="<?= site_url('projects/view/' . $project['id']) ?>" class="text-decoration-none text-dark">
             <div class="card h-100 shadow-sm border-0">
                 <div class="card-body">
-                    <h5 class="card-title text-primary"><?= esc($project['project_name']) ?></h5>
+                    <h5 class="card-title text-primary"><?= esc($project['name']) ?></h5>
                     <p class="card-text text-muted">
                         <strong>Project Head:</strong> <?= esc($project['project_head']) ?><br>
                          <?php if ($project['post_count'] > 0): ?>
